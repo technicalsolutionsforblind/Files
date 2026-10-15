@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Software - Technical Solutions for Blind</title>
+
+    <!-- Proper SEO & Social Meta Tags -->
+    <meta name="description" content="Download the Advanced System Utility Suite and other accessible Windows software built by Technical Solutions for Blind. Screen-reader friendly and verified on Microsoft Store.">
+    <meta name="keywords" content="accessibility software, screen reader friendly app, Advanced System Utility Suite, Windows utility, NVDA compatible app, Technical Solutions for Blind">
+    <meta name="author" content="Ayush Pareek - Technical Solutions for Blind">
+
+    <!-- Open Graph / Facebook Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Software - Technical Solutions for Blind">
+    <meta property="og:description" content="Explore and download powerful, fully accessible Windows utility tools engineered for screen readers.">
+    <meta property="og:url" content="https://technicalsolutionsforblind.com/software.html">
+    <meta property="og:image" content="https://technicalsolutionsforblind.com/images/logo.png">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Software - Technical Solutions for Blind">
+    <meta name="twitter:description" content="Download accessible Windows apps and system utilities from the official Software Hub.">
+    <meta name="twitter:image" content="https://technicalsolutionsforblind.com/images/logo.png">
+
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        :root {
+            --primary-color: #0275d8;
+            --primary-dark: #025aa5;
+            --accent-color: #5cb85c;
+            --bg-dark: #1a1a1a;
+            --card-bg: #ffffff;
+            --text-main: #212529;
+            --text-muted: #555555;
+        }
+
+        body {
+            font-size: 1rem;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: var(--text-main);
+            background-color: #f4f6f9;
+        }
+        
+        /* Skip Link Styling for Accessibility */
+        .skip-link {
+            position: absolute;
+            top: -50px;
+            left: 10px;
+            background: #0275d8;
+            color: #ffffff;
+            padding: 10px 15px;
+            z-index: 10000;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 4px;
+            transition: top 0.2s ease;
+        }
+        .skip-link:focus {
+            top: 10px;
+            outline: 3px solid #ffffff;
+        }
+
+        /* Access Toolbar */
+        .access {
+            padding: 10px 20px;
+            background: #e9ecef;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            border-bottom: 1px solid #ccc;
+        }
+        .access button {
+            padding: 8px 14px;
+            font-weight: bold;
+            cursor: pointer;
+            border: 1px solid #aaa;
+            border-radius: 4px;
+            background: #fff;
+        }
+        .access button:hover, .access button:focus {
+            background: var(--primary-color);
+            color: white;
+            outline: 2px solid #000;
+        }
+
+        /* Header & Navigation */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background: var(--bg-dark);
+            color: white;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+        header .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        header .logo img {
+            width: 45px;
+            height: 45px;
+        }
+        header .logo h1 {
+            font-size: 1.6rem;
+            margin: 0;
+            letter-spacing: 0.5px;
+        }
+        nav {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.05rem;
+            padding: 6px 10px;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+        nav a:hover, nav a:focus {
+            background: var(--primary-color);
+            text-decoration: underline;
+            outline: 2px solid #fff;
+        }
+        nav a[aria-current="page"] {
+            border-bottom: 3px solid var(--primary-color);
+        }
+
+        .hero { 
+            background: var(--primary-color); 
+            color: white; 
+            text-align: center; 
+            padding: 40px 20px; 
+        }
+        .hero h2 { 
+            font-size: 2.2rem; 
+            margin-bottom: 10px; 
+        }
+
+        .container { 
+            max-width: 1000px; 
+            margin: 40px auto; 
+            padding: 0 20px; 
+        }
+        .software-card { 
+            border: 1px solid #e0e0e0; 
+            border-radius: 8px; 
+            padding: 35px; 
+            background: var(--card-bg); 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06); 
+            margin-bottom: 30px; 
+        }
+        .software-card h3 { 
+            font-size: 1.8rem; 
+            margin-top: 0; 
+            color: var(--primary-color); 
+        }
+        .tagline { 
+            font-weight: bold; 
+            font-size: 1.1rem; 
+            color: var(--text-muted); 
+            margin-bottom: 20px; 
+        }
+        
+        .software-card p {
+            color: var(--text-main);
+            line-height: 1.7;
+        }
+
+        .software-card h4 {
+            color: var(--text-main);
+            font-size: 1.2rem;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+
+        .software-card ul {
+            margin-top: 10px;
+            padding-left: 20px;
+        }
+
+        .software-card li {
+            margin-bottom: 10px;
+            color: var(--text-main);
+        }
+
+        .btn-download { 
+            background: var(--accent-color); 
+            color: white; 
+            font-size: 1.1rem; 
+            font-weight: bold; 
+            padding: 12px 24px; 
+            border: none; 
+            border-radius: 5px; 
+            cursor: pointer; 
+            display: inline-block; 
+            margin-top: 20px; 
+            text-decoration: none; 
+            transition: background 0.2s;
+        }
+        .btn-download:hover, .btn-download:focus { 
+            background: #4cae4c; 
+            outline: 3px solid #000; 
+        }
+
+        /* Footer Styling */
+        footer {
+            background: var(--bg-dark);
+            color: white;
+            padding: 50px 20px 20px 20px;
+            margin-top: 60px;
+            border-top: 4px solid var(--primary-color);
+        }
+        .footer-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #333;
+        }
+        .footer-col h4 {
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+        }
+        .footer-links a:hover, .footer-links a:focus {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .copyright-section {
+            text-align: center;
+            padding-top: 20px;
+            color: #aaa;
+            font-size: 0.95rem;
+        }
+        .copyright-section p {
+            margin: 8px 0;
+        }
+        .footer-policy-links {
+            margin-bottom: 10px;
+        }
+        .footer-policy-links a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .footer-policy-links a:hover, .footer-policy-links a:focus {
+            text-decoration: underline;
+        }
+
+        .sr-only { 
+            position: absolute; 
+            width: 1px; 
+            height: 1px; 
+            overflow: hidden; 
+            clip: rect(0,0,0,0); 
+        }
+    </style>
+</head>
+<body>
+
+<!-- Skip to Main Content Link for Accessibility -->
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<!-- Accessibility Controls Toolbar -->
+<div class="access">
+    <button onclick="changeFont(-1)">Decrease font</button>
+    <button onclick="changeFont(0)">Reset font</button>
+    <button onclick="changeFont(1)">Increase font</button>
+    <button onclick="toggleTheme()">Dark/Light Mode</button>
+</div>
+
+<!-- Main Header -->
+<header>
+    <div class="logo">
+        <img src="images/logo.png" alt="Technical Solutions for Blind Logo" width="45" height="45">
+        <h1>Technical Solutions for Blind</h1>
+    </div>
+    <nav id="main-nav" aria-label="Main Navigation">
+        <a href="index.html" accesskey="h">Home</a>
+        <a href="about.html" accesskey="a">About</a>
+        <a href="tools.html" accesskey="t">Tools</a>
+        <a href="software.html" accesskey="s" aria-current="page">Software</a>
+        <a href="privacy.html" accesskey="p">Privacy</a>
+        <a href="terms.html" accesskey="m">Terms</a>
+        <a href="contact.html" accesskey="c">Contact</a>
+    </nav>
+</header>
+
+<main id="main-content" tabindex="-1">
+    <section class="hero">
+        <h2>Official Software Hub</h2>
+        <p>Technology Without Barriers - Powerful Windows Utilities</p>
+    </section>
+
+    <div class="container">
+        <article class="software-card">
+            <h3>Advanced System Utility Suite</h3>
+            <div class="tagline">The Ultimate Windows Reset: Pure, Unadulterated System Efficiency</div>
+            
+            <p><strong>Every Windows user eventually faces the same frustrating wall:</strong> a computer that boots slower with each passing week, applications that lag, and mysterious junk files that silently choke system storage. Most optimization tools promise a quick fix but deliver bloated background processes and confusing interfaces.</p>
+            
+            <p><strong>Technical Solutions for Blind</strong> has officially broken that cycle. Engineered to strip away system latency and restore your machine to its peak operational state, this utility targets temporary caches, obsolete log files, and residual installation junk that standard disk tools routinely overlook.</p>
+
+            <h4>Key Performance Features:</h4>
+            <ul>
+                <li><strong>Architecture of True Performance:</strong> Safe deletion protocols that free up valuable RAM and system memory for snappier application launches.</li>
+                <li><strong>Engineered for Total Access:</strong> Built with native compatibility for screen readers like NVDA and JAWS. Every menu, action button, and diagnostic report is cleanly exposed and perfectly labeled.</li>
+                <li><strong>Single, Secure Installation:</strong> Officially hosted and verified through the Microsoft Store. Lightweight footprint with zero bundled junk.</li>
+            </ul>
+
+            <a href="https://apps.microsoft.com/detail/9MVK18VSF7CV?hl=en-us&gl=IN&ocid=pdpshare" target="_blank" rel="noopener noreferrer" class="btn-download">
+                Download from Microsoft Store
+            </a>
+        </article>
+    </div>
+</main>
+
+<!-- Footer Section -->
+<footer>
+    <div class="footer-container">
+        <!-- About Column -->
+        <div class="footer-col">
+            <h4>Technical Solutions for Blind</h4>
+            <p style="color: #ccc; font-size: 0.95rem;">
+                Dedicated to providing accessible technology resources, software solutions, and assistive guides to improve accessibility, independence, and quality of life in the digital world.
+            </p>
+        </div>
+
+        <!-- Social Community Links Column -->
+        <div class="footer-col">
+            <h4>Social Community Links</h4>
+            <ul class="footer-links">
+                <li><a href="https://www.youtube.com/@Technical-Solutions-For-Blind" target="_blank" rel="noopener noreferrer">Official YouTube Channel</a></li>
+                <li><a href="https://t.me/technical_solutions_for_blind" target="_blank" rel="noopener noreferrer">Official Telegram Channel</a></li>
+                <li><a href="https://chat.whatsapp.com/YOUR_COMMUNITY_INVITE_LINK" target="_blank" rel="noopener noreferrer">WhatsApp Community</a></li>
+                <li><a href="https://t.me/ayush546447" target="_blank" rel="noopener noreferrer">Free Non-Copyright BGM Telegram</a></li>
+            </ul>
+        </div>
+
+        <!-- Downloads Column -->
+        <div class="footer-col">
+            <h4>Downloads & Apps</h4>
+            <ul class="footer-links">
+                <li><a href="https://apps.microsoft.com/detail/9MVK18VSF7CV?hl=en-us&gl=IN&ocid=pdpshare" target="_blank" rel="noopener noreferrer">Download Windows App (Microsoft Store)</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Copyright & Policy Links Section -->
+    <div class="copyright-section">
+        <div class="footer-policy-links">
+            <a href="privacy.html">Privacy Policy</a><br>
+            <a href="terms.html">Terms of Service</a>
+        </div>
+        <p>&copy; 2026 Technical Solutions for Blind. All Rights Reserved.</p>
+    </div>
+</footer>
+
+<div id="live-region" aria-live="polite" role="status" class="sr-only"></div>
+
+<script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- Professional SEO Meta Tags -->
+    <title>Next-Gen AI Document Intelligence - Technical Solutions for Blind</title>
+    <meta name="description" content="Use our advanced OCR-Free AI document processor to extract text, tables, and layouts from images and PDFs with near-zero errors, optimized for screen readers.">
+    <meta name="keywords" content="AI Document Intelligence, OCR-Free Text Extractor, Vision Language Model Tool, Assistive Technology Web Tools, Technical Solutions for Blind, Ayush Pareek">
+    <meta name="author" content="Ayush Pareek">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#0275d8">
+
+    <!-- Open Graph / Social Media Sharing Meta Tags -->
+    <meta property="og:title" content="Next-Gen AI Document Intelligence - Technical Solutions for Blind">
+    <meta property="og:description" content="Extract text and structure from images and PDFs using advanced AI without traditional OCR errors. Fully screen-reader optimized.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://technical-solutions-for-blind.github.io/ai-tool.html">
+    <meta property="og:site_name" content="Technical Solutions for Blind">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="AI Document Intelligence - Technical Solutions for Blind">
+    <meta name="twitter:description" content="Next-gen OCR-free document parsing and text extraction for blind and visually impaired users.">
+
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        :root {
+            --primary-color: #0275d8;
+            --primary-dark: #025aa5;
+            --accent-color: #5cb85c;
+            --bg-dark: #1a1a1a;
+            --card-bg: #ffffff;
+            --text-main: #212529;
+            --text-muted: #555555;
+        }
+
+        body {
+            font-size: 1rem;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: var(--text-main);
+            background-color: #f4f6f9;
+        }
+        
+        /* Skip Link Styling for Accessibility */
+        .skip-link {
+            position: absolute;
+            top: -50px;
+            left: 10px;
+            background: #0275d8;
+            color: #ffffff;
+            padding: 10px 15px;
+            z-index: 10000;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 4px;
+            transition: top 0.2s ease;
+        }
+        .skip-link:focus {
+            top: 10px;
+            outline: 3px solid #ffffff;
+        }
+
+        /* Access Toolbar */
+        .access {
+            padding: 10px 20px;
+            background: #e9ecef;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            border-bottom: 1px solid #ccc;
+        }
+        .access button {
+            padding: 8px 14px;
+            font-weight: bold;
+            cursor: pointer;
+            border: 1px solid #aaa;
+            border-radius: 4px;
+            background: #fff;
+        }
+        .access button:hover, .access button:focus {
+            background: #0275d8;
+            color: white;
+            outline: 2px solid #000;
+        }
+
+        /* Header & Navigation */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background: var(--bg-dark);
+            color: white;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+        header .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        header .logo h1 {
+            font-size: 1.6rem;
+            margin: 0;
+            letter-spacing: 0.5px;
+        }
+        nav {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.05rem;
+            padding: 6px 10px;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+        nav a:hover, nav a:focus {
+            background: var(--primary-color);
+            text-decoration: underline;
+            outline: 2px solid #fff;
+        }
+        nav a[aria-current="page"] {
+            border-bottom: 3px solid var(--primary-color);
+        }
+
+        .hero { 
+            background: var(--primary-color); 
+            color: white; 
+            text-align: center; 
+            padding: 40px 20px; 
+        }
+        .hero h2 { 
+            font-size: 2.2rem; 
+            margin-bottom: 10px; 
+        }
+
+        section {
+            padding: 30px 20px;
+            max-width: 850px;
+            margin: 0 auto;
+        }
+        .card {
+            background: var(--card-bg);
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            border: 1px solid #e0e0e0;
+        }
+        .card h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+            font-size: 1.4rem;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 8px;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: var(--text-main);
+        }
+        .form-group input, .form-group select, .form-group textarea {
+            padding: 12px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-family: inherit;
+            background: #fff;
+            color: var(--text-main);
+        }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            outline: 2px solid var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        .btn-group {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        button {
+            background: var(--primary-color);
+            color: white;
+            padding: 12px 24px;
+            font-size: 1rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        button:hover, button:focus {
+            background: var(--primary-dark);
+            outline: 2px solid #000;
+        }
+        button.secondary {
+            background: #28a745;
+        }
+        button.secondary:hover, button.secondary:focus {
+            background: #1e7e34;
+        }
+        .result-box {
+            margin-top: 25px;
+            padding: 20px;
+            background: #eef6ff;
+            border: 1px solid #b6d4fe;
+            border-radius: 6px;
+        }
+        .result-box h4 {
+            margin-top: 0;
+            color: var(--primary-dark);
+        }
+        .hidden {
+            display: none;
+        }
+        .field-hint {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-top: 5px;
+        }
+
+        /* Loading Spinner */
+        .loader {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid var(--primary-color);
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 10px;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Footer Styling */
+        footer {
+            background: var(--bg-dark);
+            color: white;
+            padding: 50px 20px 20px 20px;
+            margin-top: 60px;
+            border-top: 4px solid var(--primary-color);
+        }
+        .footer-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #333;
+        }
+        .footer-col h4 {
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+        }
+        .footer-links a:hover, .footer-links a:focus {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .copyright-section {
+            text-align: center;
+            padding-top: 20px;
+            color: #aaa;
+            font-size: 0.95rem;
+        }
+        .copyright-section p {
+            margin: 8px 0;
+        }
+        .footer-policy-links {
+            margin-bottom: 10px;
+        }
+        .footer-policy-links a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .footer-policy-links a:hover, .footer-policy-links a:focus {
+            text-decoration: underline;
+        }
+
+        .sr-only { 
+            position: absolute; 
+            width: 1px; 
+            height: 1px; 
+            overflow: hidden; 
+            clip: rect(0,0,0,0); 
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- Skip to Main Content Link for Accessibility -->
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<!-- Accessibility Controls Toolbar -->
+<div class="access">
+    <button onclick="changeFont(-1)">Decrease font</button>
+    <button onclick="changeFont(0)">Reset font</button>
+    <button onclick="changeFont(1)">Increase font</button>
+    <button onclick="toggleTheme()">Dark/Light Mode</button>
+</div>
+
+<!-- Main Header -->
+<header>
+    <div class="logo">
+        <img src="images/logo.png" alt="Technical Solutions for Blind Logo" width="45" height="45">
+        <h1>Technical Solutions for Blind</h1>
+    </div>
+    <nav id="main-nav" aria-label="Main Navigation">
+        <a href="index.html" accesskey="h">Home</a>
+        <a href="about.html" accesskey="a">About</a>
+        <a href="tools.html" aria-current="page" accesskey="t">Tools</a>
+        <a href="software.html" accesskey="s">Software</a>
+        <a href="privacy.html" accesskey="p">Privacy</a>
+        <a href="terms.html" accesskey="m">Terms</a>
+        <a href="contact.html" accesskey="c">Contact</a>
+    </nav>
+</header>
+
+<main id="main-content" tabindex="-1">
+    <section class="hero">
+        <h2>Next-Gen AI Document Intelligence & Extractor</h2>
+        <p>Extract error-free text, tables, and structures from any image or PDF using advanced Vision AI without traditional OCR mistakes.</p>
+    </section>
+
+    <section>
+        <div class="card">
+            <h3>Upload Document / Image for Processing</h3>
+            <p>Select your image or PDF file and choose your desired export format. Our AI will process the pixels directly.</p>
+
+            <!-- File Upload Input -->
+            <div class="form-group">
+                <label for="fileInput">Choose Image or PDF File: <span style="color:red;" aria-hidden="true">*</span></label>
+                <input type="file" id="fileInput" accept="image/*,.pdf" required>
+                <div class="field-hint">Upload a clear photo, scanned document, or multi-page PDF file.</div>
+            </div>
+
+            <!-- Export Format Selection -->
+            <div class="form-group">
+                <label for="formatSelect">Select Export Format:</label>
+                <select id="formatSelect">
+                    <option value="txt">Plain Text File (.txt)</option>
+                    <option value="docx">Microsoft Word File (.docx)</option>
+                    <option value="pdf">PDF Document (.pdf)</option>
+                </select>
+            </div>
+
+            <div class="btn-group">
+                <button onclick="processDocument()">Process Document & Preview</button>
+                <button class="secondary" onclick="clearForm()">Reset Form</button>
+                <span id="loadingIndicator" class="hidden"></span>
+            </div>
+
+            <!-- Results & Live Preview Section -->
+            <div id="resultContainer" class="result-box hidden" aria-live="polite">
+                <h4 id="resultHeading">Extracted Text Preview:</h4>
+                <div class="form-group" style="margin-bottom: 15px;">
+                    <textarea id="previewText" rows="10" style="width: 100%; font-family: monospace; resize: vertical;" placeholder="Extracted text preview will appear here..."></textarea>
+                    <div class="field-hint">You can read or review the extracted text above before downloading.</div>
+                </div>
+
+                <div class="btn-group">
+                    <button class="secondary" onclick="downloadExtractedFile()">Download File in Selected Format</button>
+                    <button onclick="copyPreviewText()">Copy Text to Clipboard</button>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- Footer Section -->
+<footer>
+    <div class="footer-container">
+        <!-- About Column -->
+        <div class="footer-col">
+            <h4>Technical Solutions for Blind</h4>
+            <p style="color: #ccc; font-size: 0.95rem;">
+                Dedicated to providing accessible technology resources, software solutions, and assistive guides to improve accessibility, independence, and quality of life in the digital world.
+            </p>
+        </div>
+
+        <!-- Social Community Links Column -->
+        <div class="footer-col">
+            <h4>Social Community Links</h4>
+            <ul class="footer-links">
+                <li><a href="https://www.youtube.com/@Technical-Solutions-For-Blind" target="_blank" rel="noopener noreferrer">Official YouTube Channel</a></li>
+                <li><a href="https://t.me/technical_solutions_for_blind" target="_blank" rel="noopener noreferrer">Official Telegram Channel</a></li>
+                <li><a href="https://chat.whatsapp.com/YOUR_COMMUNITY_INVITE_LINK" target="_blank" rel="noopener noreferrer">WhatsApp Community</a></li>
+                <li><a href="https://t.me/ayush546447" target="_blank" rel="noopener noreferrer">Free Non-Copyright BGM Telegram</a></li>
+            </ul>
+        </div>
+
+        <!-- Downloads Column -->
+        <div class="footer-col">
+            <h4>Downloads & Apps</h4>
+            <ul class="footer-links">
+                <li><a href="https://apps.microsoft.com/detail/9MVK18VSF7CV?hl=en-us&gl=IN&ocid=pdpshare" target="_blank" rel="noopener noreferrer">Download Windows App (Microsoft Store)</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Copyright & Policy Links Section -->
+    <div class="copyright-section">
+        <div class="footer-policy-links">
+            <a href="privacy.html">Privacy Policy</a><br>
+            <a href="terms.html">Terms of Service</a>
+        </div>
+        <p>&copy; 2026 Technical Solutions for Blind. All Rights Reserved.</p>
+    </div>
+</footer>
+
+<div id="live-region" aria-live="polite" role="status" class="sr-only"></div>
+
+<script>
+// यहाँ आपका Colab से मिला हुआ ताज़ा लाइव क्लाउडफ्लारे API यूआरएल सेट है
+const BACKEND_BASE_URL = "https://region-appreciation-interpreted-informal.trycloudflare.com";
+const PROCESS_API_URL = `${BACKEND_BASE_URL}/process-document`;
+
+let downloadFileUrl = ""; // डाउनलोड के लिए फाइनल लिंक स्टोर करेगा
+
+async function processDocument() {
+    const fileInput = document.getElementById('fileInput');
+    const formatSelect = document.getElementById('formatSelect');
+    const srAlert = document.getElementById('live-region');
+    const loadingIndicator = document.getElementById('loadingIndicator');
+    const resultContainer = document.getElementById('resultContainer');
+    const previewText = document.getElementById('previewText');
+    const resultHeading = document.getElementById('resultHeading');
+
+    if (fileInput.files.length === 0) {
+        alert("कृपया पहले कोई इमेज या पीडीएफ फाइल चुनें!");
+        srAlert.innerText = "Please select an image or PDF file first.";
+        fileInput.focus();
+        return;
+    }
+
+    const file = fileInput.files[0];
+    const exportFormat = formatSelect.value;
+
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("export_format", exportFormat);
+
+    // यूज़र को प्रोसेसिंग का संकेत दें
+    loadingIndicator.className = "loader";
+    srAlert.innerText = "Processing document with AI vision model. Please wait...";
+    resultContainer.classList.add('hidden');
+
+    try {
+        const response = await fetch(PROCESS_API_URL, {
+            method: "POST",
+            body: formData
+        });
+
+        if (!response.ok) {
+            throw new Error("सर्वर से फाइल प्रोसेस करने में त्रुटि आई है।");
+        }
+
+        const data = await response.json();
+
+        if (data.status === "success") {
+            // प्रीव्यू बॉक्स में टेक्स्ट दिखाएं
+            previewText.value = data.extracted_text;
+            resultHeading.innerText = `Extracted Text Preview (${data.total_pages} Page(s) Processed):`;
+            
+            // डाउनलोड लिंक सेट करें
+            downloadFileUrl = BACKEND_BASE_URL + data.download_url;
+
+            resultContainer.classList.remove('hidden');
+            srAlert.innerText = `Document processed successfully. Total ${data.total_pages} pages parsed. Preview generated and file is ready for download.`;
+            previewText.focus();
+        } else {
+            throw new Error("प्रोसेसिंग असफल रही।");
+        }
+
+    } catch (error) {
+        console.error("Error:", error);
+        alert("प्रोसेसिंग फेल हो गई। कृपया सुनिश्चित करें कि आपका Google Colab बैकएंड चालू है।");
+        srAlert.innerText = "Processing failed. Please check your backend connection.";
+    } finally {
+        loadingIndicator.className = "hidden";
+    }
+}
+
+function downloadExtractedFile() {
+    if (!downloadFileUrl) {
+        alert("डाउनलोड के लिए कोई फाइल उपलब्ध नहीं है। कृपया पहले प्रोसेस करें।");
+        return;
+    }
+
+    // नए टैब में डाउनलोड लिंक खोलें
+    window.open(downloadFileUrl, '_blank');
+    document.getElementById('live-region').innerText = "File download started.";
+}
+
+function copyPreviewText() {
+    const previewText = document.getElementById('previewText');
+    const srAlert = document.getElementById('live-region');
+    
+    if (previewText.value) {
+        navigator.clipboard.writeText(previewText.value).then(() => {
+            srAlert.innerText = "Extracted text copied to clipboard!";
+            alert("Extracted text copied to clipboard!");
+        }).catch(err => {
+            console.error("Copy failed:", err);
+        });
+    }
+}
+
+function clearForm() {
+    document.getElementById('fileInput').value = "";
+    document.getElementById('previewText').value = "";
+    document.getElementById('resultContainer').classList.add('hidden');
+    downloadFileUrl = "";
+    document.getElementById('live-region').innerText = "Form cleared.";
+}
+
+// एक्सेसिबिलिटी फोंट और थीम टॉगल फंक्शन्स
+let currentFontSize = 1;
+function changeFont(direction) {
+    if (direction === 0) {
+        currentFontSize = 1;
+    } else {
+        currentFontSize += direction * 0.1;
+    }
+    document.body.style.fontSize = currentFontSize + 'rem';
+}
+
+function toggleTheme() {
+    const body = document.body;
+    if (body.style.backgroundColor === 'rgb(26, 26, 26)') {
+        body.style.backgroundColor = '#f4f6f9';
+        body.style.color = '#212529';
+    } else {
+        body.style.backgroundColor = '#1a1a1a';
+        body.style.color = '#f4f6f9';
+    }
+}
+</script>
+</body>
+</html>

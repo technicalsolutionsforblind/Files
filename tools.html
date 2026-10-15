@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Web Tools Portal - Technical Solutions for Blind</title>
+
+<!-- Proper SEO & Social Meta Tags -->
+<meta name="description" content="Explore accessible web tools designed for visually impaired and sighted users. Includes URL shortener, QR code generator, chat link generator, digital signature, and more.">
+<meta name="keywords" content="web tools, accessibility tools, screen reader friendly tools, URL shortener, QR generator, digital signature, SIP calculator, Ayush Pareek">
+<meta name="author" content="Ayush Pareek - Technical Solutions for Blind">
+
+<!-- Open Graph / Facebook Meta Tags -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Web Tools Portal - Technical Solutions for Blind">
+<meta property="og:description" content="Discover useful, accessible web utilities designed to make everyday digital tasks easier.">
+<meta property="og:url" content="https://technicalsolutionsforblind.com/tools.html">
+<meta property="og:image" content="https://technicalsolutionsforblind.com/images/logo.png">
+
+<!-- Twitter Card Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Web Tools Portal - Technical Solutions for Blind">
+<meta name="twitter:description" content="Explore accessible online tools built with standard web accessibility for seamless navigation.">
+<meta name="twitter:image" content="https://technicalsolutionsforblind.com/images/logo.png">
+
+<link rel="stylesheet" href="css/style.css">
+<style>
+    :root {
+        --primary-color: #0275d8;
+        --primary-dark: #025aa5;
+        --accent-color: #5cb85c;
+        --bg-dark: #1a1a1a;
+        --card-bg: #ffffff;
+        --text-main: #212529;
+        --text-muted: #555555;
+    }
+
+    /* Skip to Main Content Link Styling (Accessible) */
+    .skip-link {
+        position: absolute;
+        top: -50px;
+        left: 10px;
+        background: var(--primary-color);
+        color: white;
+        padding: 10px 15px;
+        z-index: 10000;
+        text-decoration: none;
+        font-weight: bold;
+        border-radius: 4px;
+        transition: top 0.2s ease;
+    }
+    .skip-link:focus {
+        top: 10px;
+        outline: 3px solid #ffffff;
+    }
+
+    body {
+        font-size: 1rem;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background: #f4f6f9;
+        color: var(--text-main);
+        line-height: 1.6;
+    }
+
+    /* Access Toolbar */
+    .access {
+        padding: 10px 20px;
+        background: #e9ecef;
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        border-bottom: 1px solid #ccc;
+    }
+    .access button {
+        padding: 8px 14px;
+        font-weight: bold;
+        cursor: pointer;
+        border: 1px solid #aaa;
+        border-radius: 4px;
+        background: #fff;
+    }
+    .access button:hover, .access button:focus {
+        background: var(--primary-color);
+        color: white;
+        outline: 2px solid #000;
+    }
+
+    /* Header & Navigation */
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 30px;
+        background: var(--bg-dark);
+        color: white;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+    .logo img {
+        width: 45px;
+        height: 45px;
+    }
+    .logo h1 {
+        font-size: 1.6rem;
+        margin: 0;
+        letter-spacing: 0.5px;
+    }
+    nav {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+    nav a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1.05rem;
+        padding: 6px 10px;
+        border-radius: 4px;
+        transition: background 0.2s;
+    }
+    nav a:hover, nav a:focus {
+        background: var(--primary-color);
+        text-decoration: underline;
+        outline: 2px solid #fff;
+    }
+    nav a[aria-current="page"] {
+        border-bottom: 3px solid var(--primary-color);
+    }
+
+    .hero {
+        background: var(--primary-color);
+        color: white;
+        padding: 40px 20px;
+        text-align: center;
+    }
+    .hero h2 {
+        margin: 0;
+        font-size: 2.2rem;
+    }
+
+    section.main-wrapper {
+        padding: 30px 20px;
+        max-width: 1100px;
+        margin: 0 auto;
+    }
+
+    /* Search and Sort Controls Styling */
+    .controls-container {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+        margin-top: 20px;
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        border: 1px solid #e0e0e0;
+    }
+    .search-box, .sort-box {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        flex: 1;
+        min-width: 240px;
+    }
+    .controls-container label {
+        font-weight: bold;
+        color: var(--text-main);
+    }
+    .controls-container input, .controls-container select {
+        padding: 10px;
+        font-size: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-family: inherit;
+    }
+
+    /* Tools Grid Layout */
+    .tools-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 25px;
+        margin-top: 30px;
+    }
+    article {
+        background: var(--card-bg);
+        padding: 25px;
+        border-radius: 8px;
+        border: 1px solid #e0e0e0;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    article:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    }
+    article h3 {
+        margin-top: 0;
+        color: var(--primary-color);
+        font-size: 1.4rem;
+    }
+    article p {
+        color: var(--text-muted);
+        line-height: 1.6;
+    }
+    article button {
+        padding: 12px 18px;
+        background: var(--primary-color);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 1rem;
+        margin-top: 15px;
+        transition: background 0.2s;
+    }
+    article button:hover, article button:focus {
+        background: var(--primary-dark);
+        outline: 3px solid #000;
+    }
+
+    /* Footer Styling */
+    footer {
+        background: var(--bg-dark);
+        color: white;
+        padding: 50px 20px 20px 20px;
+        margin-top: 60px;
+        border-top: 4px solid var(--primary-color);
+    }
+    .footer-container {
+        max-width: 1100px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+        padding-bottom: 30px;
+        border-bottom: 1px solid #333;
+    }
+    .footer-col h4 {
+        font-size: 1.3rem;
+        color: var(--primary-color);
+        margin-top: 0;
+        margin-bottom: 15px;
+    }
+    .footer-links {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    .footer-links li {
+        margin-bottom: 10px;
+    }
+    .footer-links a {
+        color: #ddd;
+        text-decoration: none;
+    }
+    .footer-links a:hover, .footer-links a:focus {
+        color: white;
+        text-decoration: underline;
+    }
+
+    .copyright-section {
+        text-align: center;
+        padding-top: 20px;
+        color: #aaa;
+        font-size: 0.95rem;
+    }
+    .copyright-section p {
+        margin: 8px 0;
+    }
+    .footer-policy-links {
+        margin-bottom: 10px;
+    }
+    .footer-policy-links a {
+        color: var(--accent-color);
+        text-decoration: none;
+        font-weight: bold;
+    }
+    .footer-policy-links a:hover, .footer-policy-links a:focus {
+        text-decoration: underline;
+    }
+
+    .sr-status {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        border: 0;
+    }
+    .no-results {
+        grid-column: 1 / -1;
+        text-align: center;
+        padding: 30px;
+        background: white;
+        border-radius: 8px;
+        font-size: 1.2rem;
+        color: var(--text-muted);
+        border: 1px solid #e0e0e0;
+    }
+</style>
+</head>
+
+<body>
+
+<!-- Skip to Main Content for Accessibility -->
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<!-- Accessibility Status Alert for Screen Readers -->
+<div id="live-region" class="sr-status" aria-live="polite" role="status"></div>
+
+<div class="access" aria-label="Accessibility Controls">
+    <button onclick="changeFont(-1)" aria-label="Decrease Font Size">Decrease font</button>
+    <button onclick="changeFont(0)" aria-label="Reset Font Size">Reset</button>
+    <button onclick="changeFont(1)" aria-label="Increase Font Size">Increase font</button>
+    <button onclick="toggleTheme()" aria-label="Toggle Dark and Light Theme">Dark/Light</button>
+</div>
+
+<header>
+    <div class="logo">
+        <img src="images/logo.png" alt="Technical Solutions for Blind Logo" width="45" height="45">
+        <h1>Technical Solutions for Blind</h1>
+    </div>
+
+    <nav aria-label="Main Navigation">
+        <a href="index.html" accesskey="h">Home</a>
+        <a href="about.html" accesskey="a">About</a>
+        <a href="tools.html" accesskey="t" aria-current="page">Tools</a>
+        <a href="software.html" accesskey="s">Software</a>
+        <a href="privacy.html" accesskey="p">Privacy</a>
+        <a href="terms.html" accesskey="m">Terms</a>
+        <a href="contact.html" accesskey="c">Contact</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h2>Web Tools Portal</h2>
+    <p>Technology Without Barriers</p>
+</section>
+
+<!-- Main Content Anchor -->
+<main id="main-content" tabindex="-1">
+    <section class="main-wrapper">
+        <h2 style="color: var(--primary-color); margin-top: 0;">Welcome to Technical Solutions for Blind Tools</h2>
+        <p>Discover useful and accessible tools designed to make everyday digital tasks easier. Built with standard web accessibility to ensure seamless navigation for screen readers.</p>
+
+        <!-- Controls Section: Search Bar & Sort Dropdown -->
+        <div class="controls-container" role="search" aria-label="Tools Filter Controls">
+            <div class="search-box">
+                <label for="searchTools">Search Tools:</label>
+                <input type="search" id="searchTools" placeholder="Type to search tools..." oninput="filterAndSortTools()">
+            </div>
+            <div class="sort-box">
+                <label for="sortTools">Sort By:</label>
+                <select id="sortTools" onchange="filterAndSortTools()">
+                    <option value="default">Default Order</option>
+                    <option value="asc">Name (A to Z)</option>
+                    <option value="desc">Name (Z to A)</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Main Tools Container -->
+        <div id="toolsGrid" class="tools-grid">
+            
+            <!-- YouTube Downloader Tool -->
+            <article data-title="TSB YouTube Downloader & Media Converter">
+                <div>
+                    <h3>TSB YouTube Downloader</h3>
+                    <p>Convert and download YouTube videos and audio files instantly at lightning speed without IP restrictions.</p>
+                </div>
+                <button onclick="window.location.href='templates/yt-downloader.html'" aria-label="Open TSB YouTube Downloader Tool">Open YouTube Downloader</button>
+            </article>
+
+            <!-- URL Shortener & QR Generator Tool -->
+            <article data-title="URL Shortener & QR Code Generator">
+                <div>
+                    <h3>URL Shortener & QR Code Generator</h3>
+                    <p>Convert long web addresses into short, easy-to-share links instantly along with accessible QR codes.</p>
+                </div>
+                <button onclick="window.location.href='URL_Shortener.html'" aria-label="Open URL Shortener & QR Code Generator Tool">Open URL Shortener</button>
+            </article>
+
+            <!-- Direct Chat Link Generator Tool -->
+            <article data-title="Direct Chat Link Generator">
+                <div>
+                    <h3>Direct Chat Link Generator</h3>
+                    <p>Generate one-click direct chat links for WhatsApp and Telegram with pre-filled messages for quick communication.</p>
+                </div>
+                <button onclick="window.location.href='Chat_link_generator.html'" aria-label="Open Direct Chat Link Generator Tool">Open Chat Link Generator</button>
+            </article>
+
+            <!-- Digital Signature Generator Tool -->
+            <article data-title="Digital Signature Generator">
+                <div>
+                    <h3>Digital Signature Generator</h3>
+                    <p>Create clean digital signatures online by typing or drawing, and download them easily for official document signing.</p>
+                </div>
+                <button onclick="window.location.href='Digitle_Signature.html'" aria-label="Open Digital Signature Generator Tool">Open Signature Generator</button>
+            </article>
+
+            <!-- Password Generator Tool -->
+            <article data-title="Password Generator">
+                <div>
+                    <h3>Password Generator</h3>
+                    <p>Create a strong and secure password instantly with custom choices for numbers, symbols, and length.</p>
+                </div>
+                <button onclick="window.location.href='password-generator.html'" aria-label="Open Password Generator Tool">Open Password Generator</button>
+            </article>
+
+            <!-- SIP Calculator Tool -->
+            <article data-title="SIP Calculator">
+                <div>
+                    <h3>SIP Calculator</h3>
+                    <p>Calculate your Systematic Investment Plan (SIP) returns and estimate future wealth growth easily.</p>
+                </div>
+                <button onclick="window.location.href='sip-calculator.html'" aria-label="Open SIP Calculator Tool">Open SIP Calculator</button>
+            </article>
+
+        </div>
+    </section>
+</main>
+
+<!-- Footer Section -->
+<footer>
+    <div class="footer-container">
+        <!-- About Column -->
+        <div class="footer-col">
+            <h4>Technical Solutions for Blind</h4>
+            <p style="color: #ccc; font-size: 0.95rem;">
+                Dedicated to providing accessible technology resources, software solutions, and assistive guides to improve accessibility, independence, and quality of life in the digital world.
+            </p>
+        </div>
+
+        <!-- Social Community Links Column -->
+        <div class="footer-col">
+            <h4>Social Community Links</h4>
+            <ul class="footer-links">
+                <li><a href="https://www.youtube.com/@Technical-Solutions-For-Blind" target="_blank" rel="noopener noreferrer">Official YouTube Channel</a></li>
+                <li><a href="https://t.me/technical_solutions_for_blind" target="_blank" rel="noopener noreferrer">Official Telegram Channel</a></li>
+                <li><a href="https://chat.whatsapp.com/YOUR_COMMUNITY_INVITE_LINK" target="_blank" rel="noopener noreferrer">WhatsApp Community</a></li>
+                <li><a href="https://t.me/ayush546447" target="_blank" rel="noopener noreferrer">Free Non-Copyright BGM Telegram</a></li>
+            </ul>
+        </div>
+
+        <!-- Downloads Column -->
+        <div class="footer-col">
+            <h4>Downloads & Apps</h4>
+            <ul class="footer-links">
+                <li><a href="https://apps.microsoft.com/detail/9MVK18VSF7CV?hl=en-us&gl=IN&ocid=pdpshare" target="_blank" rel="noopener noreferrer">Download Windows App (Microsoft Store)</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Copyright & Policy Links Section -->
+    <div class="copyright-section">
+        <div class="footer-policy-links">
+            <a href="privacy.html">Privacy Policy</a><br>
+            <a href="terms.html">Terms of Service</a>
+        </div>
+        <p>&copy; 2026 Technical Solutions for Blind. All Rights Reserved.</p>
+    </div>
+</footer>
+
+<script>
+function filterAndSortTools() {
+    const searchInput = document.getElementById('searchTools').value.toLowerCase().trim();
+    const sortValue = document.getElementById('sortTools').value;
+    const grid = document.getElementById('toolsGrid');
+    const articles = Array.from(grid.getElementsByTagName('article'));
+    const liveRegion = document.getElementById('live-region');
+
+    let visibleCount = 0;
+
+    // Filter Logic
+    articles.forEach(article => {
+        const title = article.getAttribute('data-title').toLowerCase();
+        const text = article.textContent.toLowerCase();
+
+        if (title.includes(searchInput) || text.includes(searchInput)) {
+            article.style.display = "flex";
+            visibleCount++;
+        } else {
+            article.style.display = "none";
+        }
+    });
+
+    // Handle No Results Message
+    let noResultsEl = document.getElementById('noResultsMsg');
+    if (visibleCount === 0) {
+        if (!noResultsEl) {
+            noResultsEl = document.createElement('div');
+            noResultsEl.id = 'noResultsMsg';
+            noResultsEl.className = 'no-results';
+            noResultsEl.innerText = 'No matching tools found.';
+            grid.appendChild(noResultsEl);
+        }
+    } else if (noResultsEl) {
+        noResultsEl.remove();
+    }
+
+    // Sort Logic
+    if (sortValue !== 'default') {
+        articles.sort((a, b) => {
+            const titleA = a.getAttribute('data-title').toLowerCase();
+            const titleB = b.getAttribute('data-title').toLowerCase();
+            
+            if (sortValue === 'asc') {
+                return titleA.localeCompare(titleB);
+            } else if (sortValue === 'desc') {
+                return titleB.localeCompare(titleA);
+            }
+            return 0;
+        });
+
+        // Re-append sorted elements
+        articles.forEach(article => grid.appendChild(article));
+    }
+
+    // Screen Reader Accessibility Announcement
+    if (liveRegion) {
+        liveRegion.innerText = `${visibleCount} tools found matching your criteria.`;
+    }
+}
+</script>
+
+<script src="js/script.js"></script>
+</body>
+</html>

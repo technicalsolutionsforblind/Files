@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>URL Shortener & QR Generator - Technical Solutions for Blind</title>
+
+<!-- Proper SEO & Social Meta Tags -->
+<meta name="description" content="Convert long web addresses into short, easy-to-share links instantly along with accessible QR codes using Technical Solutions for Blind URL Shortener tool.">
+<meta name="keywords" content="URL shortener, QR code generator, free URL shortener, accessible web tools, Technical Solutions for Blind, Ayush Pareek">
+<meta name="author" content="Ayush Pareek - Technical Solutions for Blind">
+
+<!-- Open Graph / Facebook Meta Tags -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="URL Shortener & QR Generator - Technical Solutions for Blind">
+<meta property="og:description" content="Instantly shorten long links and generate accessible QR codes for seamless sharing.">
+<meta property="og:url" content="https://technicalsolutionsforblind.com/URL_Shortener.html">
+<meta property="og:image" content="https://technicalsolutionsforblind.com/images/logo.png">
+
+<!-- Twitter Card Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="URL Shortener & QR Generator - Technical Solutions for Blind">
+<meta name="twitter:description" content="Convert long web addresses into short links and generate QR codes instantly.">
+<meta name="twitter:image" content="https://technicalsolutionsforblind.com/images/logo.png">
+
+<!-- QR Code Generator Library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+<style>
+    :root {
+        --primary-color: #0275d8;
+        --primary-dark: #025aa5;
+        --accent-color: #5cb85c;
+        --bg-dark: #1a1a1a;
+        --card-bg: #ffffff;
+        --text-main: #212529;
+        --text-muted: #555555;
+    }
+
+    /* Skip to Main Content Link Styling (Accessible) */
+    .skip-link {
+        position: absolute;
+        top: -50px;
+        left: 10px;
+        background: var(--primary-color);
+        color: white;
+        padding: 10px 15px;
+        z-index: 10000;
+        text-decoration: none;
+        font-weight: bold;
+        border-radius: 4px;
+        transition: top 0.2s ease;
+    }
+    .skip-link:focus {
+        top: 10px;
+        outline: 3px solid #ffffff;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background: #f4f6f9;
+        color: var(--text-main);
+        line-height: 1.6;
+    }
+
+    /* Access Toolbar */
+    .access {
+        padding: 10px 20px;
+        background: #e9ecef;
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        border-bottom: 1px solid #ccc;
+    }
+    .access button {
+        padding: 8px 14px;
+        font-weight: bold;
+        cursor: pointer;
+        border: 1px solid #aaa;
+        border-radius: 4px;
+        background: #fff;
+    }
+    .access button:hover, .access button:focus {
+        background: var(--primary-color);
+        color: white;
+        outline: 2px solid #000;
+    }
+
+    /* Header & Navigation */
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 30px;
+        background: var(--bg-dark);
+        color: white;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+    .logo img {
+        width: 45px;
+        height: 45px;
+    }
+    .logo h1 {
+        font-size: 1.6rem;
+        margin: 0;
+        letter-spacing: 0.5px;
+    }
+    nav {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+    nav a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1.05rem;
+        padding: 6px 10px;
+        border-radius: 4px;
+        transition: background 0.2s;
+    }
+    nav a:hover, nav a:focus {
+        background: var(--primary-color);
+        text-decoration: underline;
+        outline: 2px solid #fff;
+    }
+    nav a[aria-current="page"] {
+        border-bottom: 3px solid var(--primary-color);
+    }
+
+    .hero {
+        background: var(--primary-color);
+        color: white;
+        padding: 40px 20px;
+        text-align: center;
+    }
+    .hero h2 {
+        margin: 0;
+        font-size: 2.2rem;
+    }
+
+    section.main-wrapper {
+        padding: 30px 20px;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .card {
+        background: var(--card-bg);
+        padding: 30px;
+        margin-bottom: 25px;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+        border: 1px solid #e0e0e0;
+    }
+    .card h3 {
+        margin-top: 0;
+        color: var(--primary-color);
+        font-size: 1.5rem;
+    }
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 20px;
+    }
+    .form-group label {
+        font-weight: bold;
+        margin-bottom: 8px;
+        color: var(--text-main);
+    }
+    .form-group input {
+        padding: 12px;
+        font-size: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-family: inherit;
+    }
+    .btn-group {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-top: 15px;
+    }
+    button {
+        background: var(--primary-color);
+        color: white;
+        padding: 12px 22px;
+        font-size: 1rem;
+        font-weight: bold;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.2s;
+    }
+    button:hover, button:focus {
+        background: var(--primary-dark);
+        outline: 3px solid #000;
+    }
+    button.secondary {
+        background: #6c757d;
+    }
+    button.secondary:hover, button.secondary:focus {
+        background: #5a6268;
+    }
+    .result-box {
+        margin-top: 25px;
+        padding: 20px;
+        background: #eef6ff;
+        border: 1px solid #b6d4fe;
+        border-radius: 6px;
+    }
+    .result-box a {
+        font-weight: bold;
+        color: var(--primary-color);
+        font-size: 1.1rem;
+        word-break: break-all;
+    }
+    #qrcode {
+        margin-top: 15px;
+        display: flex;
+        justify-content: center;
+        padding: 15px;
+        background: #fff;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        width: fit-content;
+    }
+    .hidden {
+        display: none;
+    }
+
+    /* Footer Styling */
+    footer {
+        background: var(--bg-dark);
+        color: white;
+        padding: 50px 20px 20px 20px;
+        margin-top: 60px;
+        border-top: 4px solid var(--primary-color);
+    }
+    .footer-container {
+        max-width: 1100px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+        padding-bottom: 30px;
+        border-bottom: 1px solid #333;
+    }
+    .footer-col h4 {
+        font-size: 1.3rem;
+        color: var(--primary-color);
+        margin-top: 0;
+        margin-bottom: 15px;
+    }
+    .footer-links {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    .footer-links li {
+        margin-bottom: 10px;
+    }
+    .footer-links a {
+        color: #ddd;
+        text-decoration: none;
+    }
+    .footer-links a:hover, .footer-links a:focus {
+        color: white;
+        text-decoration: underline;
+    }
+
+    .copyright-section {
+        text-align: center;
+        padding-top: 20px;
+        color: #aaa;
+        font-size: 0.95rem;
+    }
+    .copyright-section p {
+        margin: 8px 0;
+    }
+    .footer-policy-links {
+        margin-bottom: 10px;
+    }
+    .footer-policy-links a {
+        color: var(--accent-color);
+        text-decoration: none;
+        font-weight: bold;
+    }
+    .footer-policy-links a:hover, .footer-policy-links a:focus {
+        text-decoration: underline;
+    }
+
+    .sr-status {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        border: 0;
+    }
+</style>
+</head>
+
+<body>
+
+<!-- Skip to Main Content Link for Accessibility -->
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<!-- Screen Reader Status Alert -->
+<div id="srAlert" class="sr-status" role="status" aria-live="polite"></div>
+
+<!-- Accessibility Controls Toolbar -->
+<div class="access" aria-label="Accessibility Controls">
+    <button onclick="changeFont(-1)" aria-label="Decrease Font Size">Decrease font</button>
+    <button onclick="changeFont(0)" aria-label="Reset Font Size">Reset</button>
+    <button onclick="changeFont(1)" aria-label="Increase Font Size">Increase font</button>
+    <button onclick="toggleTheme()" aria-label="Toggle Dark and Light Theme">Dark/Light</button>
+</div>
+
+<header>
+    <div class="logo">
+        <img src="images/logo.png" alt="Technical Solutions for Blind Logo" width="45" height="45">
+        <h1>Technical Solutions for Blind</h1>
+    </div>
+
+    <nav aria-label="Main Navigation">
+        <a href="index.html" accesskey="h">Home</a>
+        <a href="about.html" accesskey="a">About</a>
+        <a href="tools.html" accesskey="t">Tools</a>
+        <a href="software.html" accesskey="s">Software</a>
+        <a href="privacy.html" accesskey="p">Privacy</a>
+        <a href="terms.html" accesskey="m">Terms</a>
+        <a href="contact.html" accesskey="c">Contact</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h2>URL Shortener & QR Generator</h2>
+    <p>Technology Without Barriers</p>
+</section>
+
+<!-- Main Content Anchor -->
+<main id="main-content" tabindex="-1">
+    <section class="main-wrapper">
+        <div class="card">
+            <h3>Shorten Long URLs Instantly</h3>
+            <p>Paste any long link below to convert it into a short, easy-to-share URL along with an accessible QR code.</p>
+
+            <div class="form-group">
+                <label for="longUrl">Enter Long URL:</label>
+                <input type="url" id="longUrl" placeholder="https://example.com/very/long/path/or/parameters..." required>
+            </div>
+
+            <div class="btn-group">
+                <button onclick="shortenURL()">Shorten URL</button>
+                <button class="secondary" onclick="clearAll()">Clear</button>
+            </div>
+
+            <!-- Results Section -->
+            <div id="resultContainer" class="result-box hidden">
+                <h4 style="margin-top:0; color: var(--primary-color);">Your Shortened URL:</h4>
+                <p><a id="shortUrlLink" href="#" target="_blank" rel="noopener"></a></p>
+
+                <div class="btn-group">
+                    <button onclick="copyShortURL()">Copy Short URL</button>
+                </div>
+
+                <h4 style="margin-top:20px; color: var(--primary-color);">QR Code for Short URL:</h4>
+                <div id="qrcode" aria-label="QR Code for the shortened URL"></div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- Footer Section -->
+<footer>
+    <div class="footer-container">
+        <!-- About Column -->
+        <div class="footer-col">
+            <h4>Technical Solutions for Blind</h4>
+            <p style="color: #ccc; font-size: 0.95rem;">
+                Dedicated to providing accessible technology resources, software solutions, and assistive guides to improve accessibility, independence, and quality of life in the digital world.
+            </p>
+        </div>
+
+        <!-- Social Community Links Column -->
+        <div class="footer-col">
+            <h4>Social Community Links</h4>
+            <ul class="footer-links">
+                <li><a href="https://www.youtube.com/@Technical-Solutions-For-Blind" target="_blank" rel="noopener noreferrer">Official YouTube Channel</a></li>
+                <li><a href="https://t.me/technical_solutions_for_blind" target="_blank" rel="noopener noreferrer">Official Telegram Channel</a></li>
+                <li><a href="https://chat.whatsapp.com/YOUR_COMMUNITY_INVITE_LINK" target="_blank" rel="noopener noreferrer">WhatsApp Community</a></li>
+                <li><a href="https://t.me/ayush546447" target="_blank" rel="noopener noreferrer">Free Non-Copyright BGM Telegram</a></li>
+            </ul>
+        </div>
+
+        <!-- Downloads Column -->
+        <div class="footer-col">
+            <h4>Downloads & Apps</h4>
+            <ul class="footer-links">
+                <li><a href="https://apps.microsoft.com/detail/9MVK18VSF7CV?hl=en-us&gl=IN&ocid=pdpshare" target="_blank" rel="noopener noreferrer">Download Windows App (Microsoft Store)</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Copyright & Policy Links Section -->
+    <div class="copyright-section">
+        <div class="footer-policy-links">
+            <a href="privacy.html">Privacy Policy</a><br>
+            <a href="terms.html">Terms of Service</a>
+        </div>
+        <p>&copy; 2026 Technical Solutions for Blind. All Rights Reserved.</p>
+    </div>
+</footer>
+
+<script>
+let qrcodeObj = null;
+
+async function shortenURL() {
+    const longUrl = document.getElementById('longUrl').value.trim();
+    const srAlert = document.getElementById('srAlert');
+    const resultContainer = document.getElementById('resultContainer');
+    const shortUrlLink = document.getElementById('shortUrlLink');
+    const qrContainer = document.getElementById('qrcode');
+
+    if (!longUrl) {
+        alert("Please enter a valid URL first.");
+        srAlert.innerText = "Please enter a valid URL first.";
+        return;
+    }
+
+    // URL validation check
+    try {
+        new URL(longUrl);
+    } catch (_) {
+        alert("Invalid URL format. Make sure it starts with http:// or https://");
+        srAlert.innerText = "Invalid URL format.";
+        return;
+    }
+
+    srAlert.innerText = "Shortening URL, please wait...";
+
+    try {
+        // Direct TinyURL Creation API (No API Key or Auth needed)
+        const apiUrl = `https://tinyurl.com/api-create.php?url=${encodeURIComponent(longUrl)}`;
+
+        const response = await fetch(apiUrl);
+        if (!response.ok) {
+            throw new Error("Network error");
+        }
+
+        const shortUrl = await response.text();
+
+        if (!shortUrl || !shortUrl.startsWith('http')) {
+            throw new Error("Invalid URL returned");
+        }
+
+        // Display results
+        shortUrlLink.href = shortUrl;
+        shortUrlLink.innerText = shortUrl;
+        resultContainer.classList.remove('hidden');
+
+        // Generate QR Code
+        qrContainer.innerHTML = "";
+        qrcodeObj = new QRCode(qrContainer, {
+            text: shortUrl,
+            width: 150,
+            height: 150,
+            colorDark: "#000000",
+            colorLight: "#ffffff",
+            correctLevel: QRCode.CorrectLevel.H
+        });
+
+        srAlert.innerText = `URL shortened successfully! Short URL is ${shortUrl}`;
+
+    } catch (error) {
+        alert("Failed to shorten URL. Please try again or check your link format.");
+        srAlert.innerText = "Failed to shorten URL.";
+        console.error("Shortener Error:", error);
+    }
+}
+
+function copyShortURL() {
+    const shortUrlText = document.getElementById('shortUrlLink').innerText;
+    const srAlert = document.getElementById('srAlert');
+
+    if (shortUrlText) {
+        navigator.clipboard.writeText(shortUrlText).then(() => {
+            srAlert.innerText = "Short URL copied to clipboard!";
+            alert("Short URL copied to clipboard!");
+        }).catch(err => {
+            console.error("Copy failed:", err);
+        });
+    }
+}
+
+function clearAll() {
+    document.getElementById('longUrl').value = "";
+    document.getElementById('resultContainer').classList.add('hidden');
+    document.getElementById('qrcode').innerHTML = "";
+    document.getElementById('srAlert').innerText = "Inputs cleared.";
+}
+</script>
+
+<script src="js/script.js"></script>
+</body>
+</html>

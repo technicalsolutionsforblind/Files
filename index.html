@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home - Technical Solutions for Blind</title>
+    
+    <!-- Comprehensive SEO & Meta Tags -->
+    <meta name="description" content="Technical Solutions for Blind empowers visually impaired individuals with accessible Windows software, screen-reader optimized tools, and comprehensive technical guides. Founded by Ayush Pareek.">
+    <meta name="keywords" content="Technical Solutions for Blind, Ayush Pareek, blind accessibility, screen reader software, NVDA, JAWS, accessible web tools, Windows utility suite, MSME registered">
+    <meta name="author" content="Ayush Pareek">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://technicalsolutionsforblind.com/index.html">
+    <meta name="theme-color" content="#0275d8">
+
+    <!-- Open Graph / Facebook Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Technical Solutions for Blind">
+    <meta property="og:title" content="Technical Solutions for Blind - Technology Without Barriers">
+    <meta property="og:description" content="Empowering blind and visually impaired individuals with high-performance software, screen-reader optimized tools, and comprehensive technical solutions.">
+    <meta property="og:url" content="https://technicalsolutionsforblind.com/index.html">
+    <meta property="og:image" content="https://technicalsolutionsforblind.com/images/logo.png">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Technical Solutions for Blind - Technology Without Barriers">
+    <meta name="twitter:description" content="Empowering visually impaired users with accessible Windows software, online tools, and technical resources.">
+    <meta name="twitter:image" content="https://technicalsolutionsforblind.com/images/logo.png">
+
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        :root {
+            --primary-color: #0275d8;
+            --primary-dark: #025aa5;
+            --accent-color: #5cb85c;
+            --bg-dark: #121212;
+            --card-bg: #ffffff;
+            --text-main: #212529;
+            --text-muted: #555555;
+        }
+
+        body {
+            font-size: 1rem;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: var(--text-main);
+            background-color: #f4f6f9;
+        }
+
+        /* Skip Link Styling for Accessibility */
+        .skip-link {
+            position: absolute;
+            top: -50px;
+            left: 10px;
+            background: #0275d8;
+            color: #ffffff;
+            padding: 10px 15px;
+            z-index: 10000;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 4px;
+            transition: top 0.2s ease;
+        }
+        .skip-link:focus {
+            top: 10px;
+            outline: 3px solid #ffffff;
+        }
+
+        /* Access Toolbar */
+        .access {
+            padding: 10px 20px;
+            background: #e9ecef;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            border-bottom: 1px solid #ccc;
+        }
+        .access button {
+            padding: 8px 14px;
+            font-weight: bold;
+            cursor: pointer;
+            border: 1px solid #aaa;
+            border-radius: 4px;
+            background: #fff;
+        }
+        .access button:hover, .access button:focus {
+            background: #0275d8;
+            color: white;
+            outline: 2px solid #000;
+        }
+
+        /* Header & Navigation */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background: var(--bg-dark);
+            color: white;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+        header .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        header .logo h1 {
+            font-size: 1.6rem;
+            margin: 0;
+            letter-spacing: 0.5px;
+        }
+        nav {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.05rem;
+            padding: 6px 10px;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+        nav a:hover, nav a:focus {
+            background: var(--primary-color);
+            text-decoration: underline;
+            outline: 2px solid #fff;
+        }
+        nav a[aria-current="page"] {
+            border-bottom: 3px solid var(--primary-color);
+        }
+
+        /* Hero Banner */
+        .hero {
+            background: linear-gradient(135deg, #0275d8 0%, #003b70 100%);
+            color: white;
+            text-align: center;
+            padding: 70px 20px;
+            box-shadow: inset 0 -5px 10px rgba(0,0,0,0.2);
+        }
+        .hero h2 {
+            font-size: 2.6rem;
+            margin: 0 0 15px 0;
+        }
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 25px auto;
+            opacity: 0.95;
+        }
+        .hero-cta {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Main Container & Cards */
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .section-title {
+            font-size: 2rem;
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--primary-color);
+            display: inline-block;
+            padding-bottom: 5px;
+            margin-bottom: 25px;
+        }
+        
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        .card {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 30px;
+            background: var(--card-bg);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .card h3 {
+            margin-top: 0;
+            color: var(--text-main);
+            font-size: 1.5rem;
+        }
+        .card p {
+            color: var(--text-muted);
+            flex-grow: 1;
+        }
+
+        /* Buttons */
+        .btn {
+            background: var(--primary-color);
+            color: white;
+            font-size: 1.05rem;
+            font-weight: bold;
+            padding: 12px 22px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: inline-block;
+            text-decoration: none;
+            text-align: center;
+        }
+        .btn:hover, .btn:focus {
+            background: var(--primary-dark);
+            outline: 3px solid #000;
+        }
+        .btn-success {
+            background: var(--accent-color);
+        }
+        .btn-success:hover, .btn-success:focus {
+            background: #4cae4c;
+        }
+
+        /* Footer & Social Hub */
+        footer {
+            background: var(--bg-dark);
+            color: white;
+            padding: 50px 20px 20px 20px;
+            margin-top: 60px;
+            border-top: 4px solid var(--primary-color);
+        }
+        .footer-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #333;
+        }
+        .footer-col h4 {
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+        }
+        .footer-links a:hover, .footer-links a:focus {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .copyright-section {
+            text-align: center;
+            padding-top: 20px;
+            color: #aaa;
+            font-size: 0.95rem;
+        }
+        .copyright-section p {
+            margin: 8px 0;
+        }
+        .footer-policy-links {
+            margin-bottom: 10px;
+        }
+        .footer-policy-links a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .footer-policy-links a:hover, .footer-policy-links a:focus {
+            text-decoration: underline;
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+            clip: rect(0,0,0,0);
+        }
+    </style>
+</head>
+<body>
+
+<!-- Skip to Main Content Link for Keyboard & Screen Reader Accessibility -->
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<!-- Accessibility Controls Toolbar -->
+<div class="access" aria-label="Accessibility Controls">
+    <button onclick="changeFont(-1)" aria-label="Decrease Font Size">Decrease font</button>
+    <button onclick="changeFont(0)" aria-label="Reset Font Size">Reset</button>
+    <button onclick="changeFont(1)" aria-label="Increase Font Size">Increase font</button>
+    <button onclick="toggleTheme()" aria-label="Toggle Dark and Light Theme">Dark/Light Mode</button>
+</div>
+
+<!-- Main Header -->
+<header>
+    <div class="logo">
+        <img src="images/logo.png" alt="Technical Solutions for Blind Logo" width="45" height="45">
+        <h1>Technical Solutions for Blind</h1>
+    </div>
+    <nav id="main-nav" aria-label="Main Navigation">
+        <a href="index.html" aria-current="page" accesskey="h">Home</a>
+        <a href="about.html" accesskey="a">About</a>
+        <a href="tools.html" accesskey="t">Tools</a>
+        <a href="software.html" accesskey="s">Software</a>
+        <a href="privacy.html" accesskey="p">Privacy</a>
+        <a href="terms.html" accesskey="m">Terms</a>
+        <a href="contact.html" accesskey="c">Contact</a>
+    </nav>
+</header>
+
+<main id="main-content" tabindex="-1">
+    <!-- Hero Section -->
+    <section class="hero">
+        <h2>Technology Without Barriers</h2>
+        <p>Empowering blind and visually impaired individuals with high-performance software, screen-reader optimized tools, and comprehensive technical solutions.</p>
+        <div class="hero-cta">
+            <a href="software.html" class="btn btn-success">Explore Flagship Software</a>
+            <a href="tools.html" class="btn">Access Online Tools</a>
+        </div>
+    </section>
+
+    <!-- Core Highlights -->
+    <div class="container">
+        <h3 class="section-title">What We Offer</h3>
+        <div class="card-grid">
+            <article class="card">
+                <h3>Flagship Windows Software</h3>
+                <p>Discover <strong>Advanced System Utility Suite</strong>—a deep-cleaning utility engineered to strip away system latency, optimize RAM, and clean junk files with native NVDA and JAWS accessibility.</p>
+                <a href="software.html" class="btn">View Software Page</a>
+            </article>
+
+            <article class="card">
+                <h3>Accessibility First Tools</h3>
+                <p>Web-based tools and solutions crafted strictly following WCAG guidelines to ensure barrier-free operation for keyboard and screen-reader users.</p>
+                <a href="tools.html" class="btn">Open Tools Hub</a>
+            </article>
+
+            <article class="card">
+                <h3>Dedicated Community Support</h3>
+                <p>Connect directly with founder Ayush Pareek and our active community across YouTube, WhatsApp, and Telegram for practical assistance and tutorials.</p>
+                <a href="contact.html" class="btn">Get In Touch</a>
+            </article>
+        </div>
+    </div>
+</main>
+
+<!-- Footer Section -->
+<footer>
+    <div class="footer-container">
+        <!-- About Column -->
+        <div class="footer-col">
+            <h4>Technical Solutions for Blind</h4>
+            <p style="color: #ccc; font-size: 0.95rem;">
+                Dedicated to providing accessible technology resources, software solutions, and assistive guides to improve accessibility, independence, and quality of life in the digital world.
+            </p>
+            <!-- MSME Udyam Credentials -->
+            <p style="color: #5cb85c; font-size: 0.88rem; margin-top: 12px; line-height: 1.5;">
+                <strong>Government Credentials:</strong><br>
+                • Registered under Ministry of MSME, Govt. of India<br>
+                • <strong>Udyam Reg. No:</strong> UDYAM-RJ-30-0147268<br>
+                • <strong>NIC Code:</strong> 85499 (Educational Services)
+            </p>
+        </div>
+
+        <!-- Unified Social Community Links Column -->
+        <div class="footer-col">
+            <h4>Social Community Links</h4>
+            <ul class="footer-links">
+                <li><a href="https://www.youtube.com/@Technical-Solutions-For-Blind" target="_blank" rel="noopener noreferrer">Official YouTube Channel</a></li>
+                <li><a href="https://t.me/technical_solutions_for_blind" target="_blank" rel="noopener noreferrer">Official Telegram Channel</a></li>
+                <li><a href="https://chat.whatsapp.com/G9IUpSpxPkm8JDvdnUPtEy" target="_blank" rel="noopener noreferrer">WhatsApp Community</a></li>
+                <li><a href="https://t.me/ayush546447" target="_blank" rel="noopener noreferrer">Free Non-Copyright BGM Telegram</a></li>
+            </ul>
+        </div>
+
+        <!-- Downloads Column -->
+        <div class="footer-col">
+            <h4>Downloads & Apps</h4>
+            <ul class="footer-links">
+                <li><a href="https://apps.microsoft.com/detail/9MVK18VSF7CV?hl=en-us&gl=IN&ocid=pdpshare" target="_blank" rel="noopener noreferrer">Download Windows App (Microsoft Store)</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Privacy & Terms Policy Links Section -->
+    <div class="copyright-section">
+        <div class="footer-policy-links">
+            <a href="privacy.html">Privacy Policy</a> | 
+            <a href="terms.html">Terms of Service</a>
+        </div>
+        <p>&copy; 2026 Technical Solutions for Blind. All Rights Reserved.</p>
+    </div>
+</footer>
+
+<div id="live-region" aria-live="polite" role="status" class="sr-only"></div>
+
+<script src="js/script.js"></script>
+</body>
+</html>

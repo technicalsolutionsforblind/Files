@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- Professional SEO Meta Tags -->
+    <title>About Us - Technical Solutions for Blind | Mission & Ayush Pareek</title>
+    <meta name="description" content="Discover the mission of Technical Solutions for Blind, founded by Ayush Pareek. Learn about our MSME-registered enterprise building screen-reader optimized Windows software and accessibility tools.">
+    <meta name="keywords" content="Technical Solutions for Blind, Ayush Pareek, About Us, MSME Registered Enterprise, UDYAM-RJ-30-0147268, NVDA Screen Reader Tools, Assistive Technology, Blind Software Developer, Windows Accessibility Utilities">
+    <meta name="author" content="Ayush Pareek">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#0275d8">
+
+    <!-- Open Graph / Social Media Sharing Meta Tags -->
+    <meta property="og:title" content="About Us - Technical Solutions for Blind">
+    <meta property="og:description" content="Discover our mission to engineer powerful, barrier-free digital tools, screen-reader utilities, and accessible software under founder Ayush Pareek.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://technical-solutions-for-blind.github.io/about.html">
+    <meta property="og:site_name" content="Technical Solutions for Blind">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="About Us - Technical Solutions for Blind">
+    <meta name="twitter:description" content="Learn about our vision, MSME government registration, and high-performance screen-reader software solutions.">
+
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body { font-size: 1rem; font-family: Arial, sans-serif; line-height: 1.6; margin: 0; padding: 0; background-color: #f4f6f9; }
+        
+        /* Skip Link Styling for Accessibility */
+        .skip-link {
+            position: absolute;
+            top: -50px;
+            left: 10px;
+            background: #0275d8;
+            color: #ffffff;
+            padding: 10px 15px;
+            z-index: 10000;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 4px;
+            transition: top 0.2s ease;
+        }
+        .skip-link:focus {
+            top: 10px;
+            outline: 3px solid #ffffff;
+        }
+
+        .access { padding: 10px; background: #e9ecef; display: flex; gap: 10px; flex-wrap: wrap; }
+        .access button { padding: 8px 12px; font-weight: bold; cursor: pointer; }
+        header { display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; background: #1a1a1a; color: white; }
+        header .logo { display: flex; align-items: center; gap: 10px; }
+        header .logo h1 { font-size: 1.5rem; margin: 0; }
+        nav { display: flex; gap: 15px; }
+        nav a { color: white; text-decoration: none; font-weight: bold; }
+        nav a:hover, nav a:focus { text-decoration: underline; }
+        
+        .hero { background: #0275d8; color: white; text-align: center; padding: 50px 20px; }
+        .hero h2 { font-size: 2.2rem; margin-bottom: 10px; }
+        
+        .about-container { max-width: 1000px; margin: 30px auto; padding: 0 20px; }
+        .about-card { border: 1px solid #ccc; border-radius: 8px; padding: 30px; background: #fff; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-bottom: 30px; }
+        .about-container h3 { margin-top: 25px; color: #0275d8; font-size: 1.5rem; border-bottom: 2px solid #0275d8; padding-bottom: 5px; }
+        .about-container ul li { margin-bottom: 12px; }
+        
+        /* MSME Credentials Box Styling */
+        .credentials-box {
+            background: #e8f5e9;
+            border: 2px solid #5cb85c;
+            border-radius: 6px;
+            padding: 20px;
+            margin: 25px 0;
+        }
+        .credentials-box h4 {
+            margin-top: 0;
+            color: #2e7d32;
+            font-size: 1.25rem;
+        }
+        .credentials-list {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0 0 0;
+        }
+        .credentials-list li {
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+
+        .quote-box { background: #f8f9fa; border-left: 5px solid #0275d8; padding: 20px; margin: 25px 0; font-style: italic; }
+        .quote-author { font-style: normal; font-weight: bold; margin-top: 10px; color: #333; }
+        
+        /* Footer Styling matching Homepage */
+        footer { background: #1a1a1a; color: white; text-align: center; padding: 20px; margin-top: 40px; }
+        footer p { margin: 5px 0; }
+        footer a { color: #5cb85c; text-decoration: none; font-weight: bold; }
+        footer a:hover, footer a:focus { text-decoration: underline; }
+        .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
+    </style>
+</head>
+<body>
+
+<!-- Skip to Main Content Link for Accessibility -->
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<div class="access">
+    <button onclick="changeFont(-1)">Decrease font</button>
+    <button onclick="changeFont(0)">Reset font</button>
+    <button onclick="changeFont(1)">Increase font</button>
+    <button onclick="toggleTheme()">Dark/Light Mode</button>
+</div>
+
+<header>
+    <div class="logo">
+        <img src="images/logo.png" alt="Technical Solutions for Blind Logo" width="40" height="40">
+        <h1>Technical Solutions for Blind</h1>
+    </div>
+    <nav id="main-nav">
+        <a href="index.html" accesskey="h">Home</a>
+        <a href="about.html" aria-current="page" accesskey="a">About</a>
+        <a href="tools.html" accesskey="t">Tools</a>
+        <a href="software.html" accesskey="s">Software</a>
+        <a href="contact.html" accesskey="c">Contact</a>
+    </nav>
+</header>
+
+<main id="main-content" tabindex="-1">
+    <section class="hero">
+        <h2>About Our Mission</h2>
+        <p>Technology Without Barriers - Empowering Universal Digital Access</p>
+    </section>
+
+    <div class="about-container">
+        <article class="about-card">
+            <h3>Who We Are</h3>
+            <p>
+                <strong>Technical Solutions for Blind</strong> is a high-performance technology platform founded by <strong>Ayush Pareek</strong> with a single, uncompromising vision: to engineer powerful, barrier-free digital tools for everyone. We believe that technology should break down barriers rather than build them. Our work focuses on high-efficiency software development, screen-reader optimized tools, and robust system utilities that give complete control back to the user.
+            </p>
+            <p>
+                From native Windows applications like <em>Advanced System Utility Suite</em> to web accessibility initiatives, we build software designed to work flawlessly with screen readers such as NVDA and JAWS without sacrificing raw performance or speed.
+            </p>
+
+            <!-- Government & MSME Credentials Section -->
+            <div class="credentials-box">
+                <h4>Official Government Recognition & Registration</h4>
+                <p style="margin: 0; color: #2e7d32; font-weight: bold;">
+                    Technical Solutions for Blind is an officially recognized enterprise under the Government of India.
+                </p>
+                <ul class="credentials-list">
+                    <li><strong>Administrative Ministry:</strong> Ministry of Micro, Small & Medium Enterprises (MSME), Govt. of India</li>
+                    <li><strong>Udyam Registration Number:</strong> UDYAM-RJ-30-0147268</li>
+                    <li><strong>National Industry Classification (NIC) Code:</strong> 85499 (Educational Services & Technical Training)</li>
+                    <li><strong>Enterprise Classification:</strong> Micro Enterprise (Services)</li>
+                </ul>
+            </div>
+
+            <h3>Our Vision</h3>
+            <p>
+                To stand as a globally recognized initiative in universal accessibility and practical software development, proving that high-performance software and total accessibility can exist in perfect harmony.
+            </p>
+
+            <h3>Our Core Mission</h3>
+            <ul>
+                <li><strong>Uncompromising Accessibility:</strong> Develop clean, intuitive software that works seamlessly with assistive technology out of the box.</li>
+                <li><strong>High-Performance Engineering:</strong> Create lightweight, dependable utilities that optimize system memory and streamline workflows.</li>
+                <li><strong>Practical Empowerment:</strong> Deliver real technical solutions that enhance independence for visually impaired developers and users alike.</li>
+                <li><strong>Privacy and Security First:</strong> Build reliable applications without unnecessary background clutter, intrusive tracking, or hidden dependencies.</li>
+            </ul>
+
+            <h3>What We Value</h3>
+            <ul>
+                <li><strong>Innovation:</strong> Continuously refining algorithms to deliver maximum power with minimal system overhead.</li>
+                <li><strong>Universal Design:</strong> Ensuring every button, diagnostic output, and interactive element is perfectly labeled for screen readers.</li>
+                <li><strong>Integrity:</strong> Operating with complete transparency, user respect, and software reliability.</li>
+            </ul>
+
+            <h3>Founder's Statement</h3>
+            <div class="quote-box">
+                <p>"True innovation is achieved when software operates without friction for every single user. At Technical Solutions for Blind, our mission is to eliminate visual and operational barriers, engineering solutions that unlock absolute control, performance, and independence."</p>
+                <div class="quote-author">— Ayush Pareek<br>Founder & Lead Developer, Technical Solutions for Blind</div>
+            </div>
+
+            <h3>Our Commitment</h3>
+            <p>
+                We remain fully dedicated to maintaining strict user privacy, robust security standards, and accessible software deployment across all our platforms.
+            </p>
+        </article>
+    </div>
+</main>
+
+<footer>
+    <p><a href="privacy.html">Privacy Policy</a>
+<br>
+<a href="terms.html">Terms of Service</a></p>
+    <p>&copy; 2026 Technical Solutions for Blind. All rights reserved.</p>
+</footer>
+
+<div id="live-region" aria-live="polite" role="status" class="sr-only"></div>
+
+<script src="js/script.js"></script>
+</body>
+</html>
